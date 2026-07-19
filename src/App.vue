@@ -5,7 +5,9 @@ import { initialLead, whatsNumber, type LeadState } from './config'
 import { buildWhatsAppLink } from './solar'
 
 const lead = ref<LeadState>({ ...initialLead })
-const whatsLink = computed(() => buildWhatsAppLink(whatsNumber, lead.value))
+const genericWhatsLink = computed(() => buildWhatsAppLink(whatsNumber, lead.value, 'generic'))
+const simulatorWhatsLink = computed(() => buildWhatsAppLink(whatsNumber, lead.value, 'simulator'))
+const billWhatsLink = computed(() => buildWhatsAppLink(whatsNumber, lead.value, 'bill'))
 
 function updateLead(next: LeadState) {
   lead.value = next
@@ -18,7 +20,7 @@ function scrollToSim() {
 }
 
 function openWhatsApp() {
-  window.open(whatsLink.value, '_blank', 'noopener')
+  window.open(simulatorWhatsLink.value, '_blank', 'noopener')
 }
 </script>
 
@@ -27,15 +29,15 @@ function openWhatsApp() {
     <component
       v-if="route.meta.standalone"
       :is="Component"
-      :whats-link="whatsLink"
+      :whats-link="genericWhatsLink"
       @update:lead="updateLead"
       @simulate="scrollToSim"
       @submit="openWhatsApp"
     />
-    <DefaultLayout v-else :whats-link="whatsLink" @simulate="scrollToSim">
+    <DefaultLayout v-else :whats-link="billWhatsLink" :generic-whats-link="genericWhatsLink" @simulate="scrollToSim">
       <component
         :is="Component"
-        :whats-link="whatsLink"
+        :whats-link="billWhatsLink"
         @update:lead="updateLead"
         @simulate="scrollToSim"
         @submit="openWhatsApp"

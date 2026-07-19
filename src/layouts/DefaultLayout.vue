@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import PageFooter from '../components/PageFooter.vue'
 import SiteHeader from '../components/SiteHeader.vue'
 
-defineProps<{ whatsLink: string }>()
+defineProps<{ whatsLink: string; genericWhatsLink: string }>()
 defineEmits<{ simulate: [] }>()
 </script>
 
@@ -13,7 +13,7 @@ defineEmits<{ simulate: [] }>()
   <div class="mobile-bar">
     <button class="btn btn-solar" @click="$emit('simulate')">Comparar minha conta</button>
   </div>
-  <a class="whatsapp-float" :href="whatsLink" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <a class="whatsapp-float" :href="genericWhatsLink" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
     <span aria-hidden="true">
       <FontAwesomeIcon :icon="faWhatsapp" />
     </span>

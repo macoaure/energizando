@@ -33,7 +33,7 @@ export function calcEstimate(lead: LeadState): Estimate {
   }
 }
 
-export function buildWhatsAppLink(number: string, lead: LeadState, route = 'geral') {
+export function buildWhatsAppLink(number: string, lead: LeadState, route = 'simulator') {
   const estimate = calcEstimate(lead)
   const category = (lead.category || 'Residencial').toLowerCase()
   const city = lead.city || 'Londrina'
@@ -42,6 +42,8 @@ export function buildWhatsAppLink(number: string, lead: LeadState, route = 'gera
 
   let msg = `Ola, fiz a simulacao no site da Energizando - Energia solar. Minha conta media e de ${bill}, o imovel e ${category} e fica em ${city}. A estimativa indicou potencial de economia de ate R$ ${savings} por mes. Gostaria de receber um orcamento dimensionado com a minha conta de energia.`
 
+  if (route === 'generic') msg = 'Ola, vim pelo site da Energizando - Energia solar e gostaria de falar sobre energia solar.'
+  if (route === 'bill') msg = `Ola, quero enviar minha conta de luz para um orcamento tecnico da Energizando - Energia solar. Minha conta media e de ${bill}, o imovel e ${category} e fica em ${city}.`
   if (route === 'financing') msg = `Ola, fiz a simulacao no site da Energizando - Energia solar e gostaria de um orcamento com opcoes de financiamento. Conta media: ${bill}, imovel em ${city}.`
   if (route === 'comercial') msg = `Ola, sou cliente comercial e fiz a simulacao no site da Energizando - Energia solar. Conta media de ${bill}, gostaria de um orcamento para avaliar retorno e previsibilidade de custo.`
   if (route === 'rural') msg = `Ola, tenho uma propriedade rural e fiz a simulacao no site da Energizando - Energia solar. Conta media de ${bill}, gostaria de um orcamento para avaliar viabilidade.`

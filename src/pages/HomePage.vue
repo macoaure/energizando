@@ -19,5 +19,5 @@ defineEmits<{ simulate: []; 'update:lead': [LeadState]; submit: [] }>()
   <FinancingOptions @simulate="$emit('simulate')" />
   <TechAuthority />
   <FaqSection @simulate="$emit('simulate')" />
-  <FinalCta :whats-link="whatsLink" @analyze="$emit('submit')" />
+  <FinalCta :whats-link="whatsLink" />
 </template>

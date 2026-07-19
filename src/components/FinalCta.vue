@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 
 defineProps<{ whatsLink: string }>()
-defineEmits<{ analyze: [] }>()
 const fileName = ref('')
 const inputId = 'final-energy-bill'
 
@@ -25,7 +24,7 @@ function updateFile(event: Event) {
         <input :id="inputId" type="file" accept="image/*,application/pdf" class="final-file" @change="updateFile" />
       </label>
       <div class="final-actions">
-        <button class="btn btn-solar" @click="$emit('analyze')">Receber orcamento pela conta</button>
+        <a class="btn btn-solar" :href="whatsLink" target="_blank" rel="noopener">Receber orcamento pela conta</a>
         <a class="btn btn-whats" :href="whatsLink" target="_blank" rel="noopener">Mandar fatura pelo WhatsApp</a>
       </div>
     </div>
