@@ -382,6 +382,13 @@
   .final-file{position:absolute; inline-size:1px; block-size:1px; opacity:0; pointer-events:none;}
   .final-actions{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:22px;}
 
+  /* ===== Error pages ===== */
+  .error-page{min-height:calc(100svh - 70px); display:grid; align-items:center;}
+  .error-shell{max-width:680px;}
+  .error-shell h1{color:#F7F1E4; font-size:clamp(30px,4vw,48px); line-height:1.08; margin-top:16px;}
+  .error-shell p{color:#B0BCC8; max-width:58ch; margin-top:16px;}
+  .error-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;}
+
   footer{padding:32px 24px; text-align:center; font-size:12px; color:var(--ink-soft); font-family:var(--font-mono);}
   .footer-logo{width:42px; height:42px; margin:0 auto 10px; filter:brightness(0) saturate(100%) invert(10%) sepia(36%) saturate(1345%) hue-rotate(178deg) brightness(92%) contrast(97%);}
   .footer-brand{font-family:var(--font-sans); font-size:14px; font-weight:800; color:var(--navy); margin-bottom:6px;}
@@ -422,8 +429,10 @@
     .whatsapp-float b{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);}
     .whatsapp-float span{width:34px; height:34px;}
     .hero-cta-row,
+    .error-actions,
     .final-actions{flex-direction:column;}
     .hero-cta-row .btn,
+    .error-actions .btn,
     .final-actions .btn,
     .financing-action .btn{width:100%;}
     .opt-grid.two-col,
