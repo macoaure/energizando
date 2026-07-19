@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=./#/" />
+    <title>Redirecionando...</title>
+    <script>
+      const path = location.pathname.split('/').filter(Boolean).slice(1).join('/')
+      const query = location.search || ''
+      const hash = location.hash || ''
+      location.replace(`./#/${path}${query}${hash}`)
+    </script>
+  </head>
+  <body></body>
+</html>
